@@ -10,8 +10,10 @@
  * }
  */
  
- // Problem link: https://leetcode.com/problems/add-two-numbers/
- 
+// Problem link: https://leetcode.com/problems/add-two-numbers/
+// Runtime: 100 ms, faster than 92.95% of C# online submissions for Add Two Numbers.
+// Memory Usage: 28.3 MB, less than 65.14% of C# online submissions for Add Two Numbers.
+
 public class Solution {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
         StringBuilder l1Values = new StringBuilder();
@@ -30,26 +32,26 @@ public class Solution {
         l1Values.Append(l1.val.ToString());
         l2Values.Append(l2.val.ToString());
         
-        long result = long.Parse(Reverse(l1Values.ToString())) + long.Parse(Reverse(l2Values.ToString()));
+        var result = BigInteger.Parse(Reverse(l1Values.ToString())) + BigInteger.Parse(Reverse(l2Values.ToString()));
 
-        long currentDigit = result % 10;
+        var currentDigit = result % 10;
         result = result / 10;
         
         if (result < 1)
-            return new ListNode(Convert.ToInt32(currentDigit));
+            return new ListNode((int) currentDigit);
         
-        ListNode headOfList = new ListNode(Convert.ToInt32(currentDigit), new ListNode());
+        ListNode headOfList = new ListNode((int) currentDigit, new ListNode());
         ListNode currentNode = headOfList.next;
         while (result >= 10)
         {
             currentDigit = result % 10;
             result = result / 10;
             
-            currentNode.val = Convert.ToInt32(currentDigit);
+            currentNode.val = (int) currentDigit;
             currentNode.next = new ListNode();
             currentNode = currentNode.next;
         }
-        currentNode.val = Convert.ToInt32(result);
+        currentNode.val = (int) result;
         return headOfList;
     }
     
