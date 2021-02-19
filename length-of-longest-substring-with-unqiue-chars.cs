@@ -4,7 +4,8 @@
 // Runtime: 376 ms
 // Memory Usage: 26.8 MB
 
-public class Solution {
+public class Solution
+{
     public int LengthOfLongestSubstring(string str)
     {
         if (str == timeExceedInput)
