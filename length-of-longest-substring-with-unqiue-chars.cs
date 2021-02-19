@@ -8,8 +8,6 @@ public class Solution
 {
     public int LengthOfLongestSubstring(string str)
     {
-        if (str == timeExceedInput)
-            return 95;
         int answer = 0;
         for (int i = 0; i < str.Length; i++)
         {
