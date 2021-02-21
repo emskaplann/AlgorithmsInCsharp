@@ -1,69 +1,39 @@
-// 92 / 176 test cases passed.
-// Status: Time Limit Exceeded.
+// 176 / 176 test cases passed.
+// Stats: Time Limit Exceeded.
 // Link: https://leetcode.com/problems/longest-palindromic-substring/
 
 public class Solution
 {
-    public string LongestPalindrome(string str)
+    public string LongestPalindrome(string s)
     {
-        if (str.Length == 1)
-            return str;
-        int maxValue = 0;
-        string maxString = "";
-        for (int i = 0; i < str.Length; i++)
+        int n = s.Length;
+        string answer = "";
+        
+        if (n == 0) return s;
+        if (n == 1) return s;
+        
+        for (int i = 0; i < n - 1; i++)
         {
-            string substr = FindLongestPalindrome(str, i, 1);
-            if (substr.Length > maxValue && IsPalindromic(substr))
+            for (int j = 1; j <= n - i; j++)
             {
-                maxValue = substr.Length;
-                maxString = substr;
+                string substr = s.Substring(i, j);
+                if (substr.Length < answer.Length) continue;
+                if (IsPalindromic(substr))
+                {
+                    answer = substr;
+                }
             }
         }
-        return maxString;
-    }
-    
-    public string FindLongestPalindrome(string str, int startIndex, int endIndex)
-    {
-        if (endIndex + startIndex > str.Length)
-        {
-            return str.Substring(startIndex, endIndex - 1);   
-        }
-        
-        if (!IsPalindromic(str.Substring(startIndex, endIndex)) && !FindIfFutureSubstringsArePalindrome(str, startIndex, endIndex))
-            return str.Substring(startIndex, endIndex - 1);
-        
-        return FindLongestPalindrome(str, startIndex, endIndex + 1);
-    }
-    
-    public bool FindIfFutureSubstringsArePalindrome(string str, int startIndex, int endIndex)
-    {
-        if (endIndex + startIndex > str.Length)
-            return false;
-        
-        if (IsPalindromic(str.Substring(startIndex, endIndex)))
-            return true;
-        
-        return FindIfFutureSubstringsArePalindrome(str, startIndex, endIndex + 1);
+        return answer;
     }
     
     public bool IsPalindromic(string str)
     {
         int midIndex = str.Length / 2;
-        if (str.Length % 2 == 0)
+        for (int i = 0, j = str.Length - 1; i < midIndex; i++, j--)
         {
-            for (int i = 0, j = str.Length - 1; i < midIndex; i++, j--)
-            {
-                if (str[i] != str[j])
-                    return false;
-            }
-        }
-        else
-        {   
-            for (int i = 0, j = str.Length - 1; i < midIndex; i++, j--)
-            {
-                if (str[i] != str[j])
-                    return false;
-            }
+            if (str[i] != str[j])
+                return false;
         }
         return true;
     }
