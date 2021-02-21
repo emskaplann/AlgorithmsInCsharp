@@ -1,6 +1,6 @@
-92 / 176 test cases passed.
-Status: Time Limit Exceeded.
-Link: https://leetcode.com/problems/longest-palindromic-substring/
+// 92 / 176 test cases passed.
+// Status: Time Limit Exceeded.
+// Link: https://leetcode.com/problems/longest-palindromic-substring/
 
 public class Solution
 {
