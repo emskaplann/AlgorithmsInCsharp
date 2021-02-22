@@ -1,15 +1,16 @@
-// Runtime: 120 ms, faster than 33.33% of C# online submissions for ZigZag Conversion.
-// Memory Usage: 43.3 MB, less than 5.44% of C# online submissions for ZigZag Conversion.
+// Runtime: 104 ms, faster than 55.51% of C# online submissions for ZigZag Conversion.
+// Memory Usage: 37.6 MB, less than 9.62% of C# online submissions for ZigZag Conversion.
 // Link: https://leetcode.com/problems/zigzag-conversion/
 
 public class Solution
 {
     public string Convert(string s, int numRows)
     {
-        if (s.Length == 1 || s.Length == 2 || numRows == 1) return s;
+        if (s.Length == 1 || s.Length == 2 || numRows == 1 || s.Length == numRows) return s;
         int oneColCost = (2 * numRows) - 2;
-        int fullSection = (s.Length / oneColCost) + 1;
-        int numCols = (fullSection * (numRows - 1));
+        int fullSection = (s.Length / oneColCost);
+        int halfSection = ((s.Length % oneColCost) % numRows) + 1;
+        int numCols = (fullSection * (numRows - 1)) + halfSection;
         Console.WriteLine(numCols);
         char[,] zigZag = new char[numRows, numCols];
         
