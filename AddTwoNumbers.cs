@@ -14,7 +14,8 @@
 // Runtime: 100 ms, faster than 92.95% of C# online submissions for Add Two Numbers.
 // Memory Usage: 28.3 MB, less than 65.14% of C# online submissions for Add Two Numbers.
 
-public class Solution {
+public class Solution
+{
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
         StringBuilder l1Values = new StringBuilder();
         StringBuilder l2Values = new StringBuilder();
