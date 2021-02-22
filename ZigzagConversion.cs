@@ -2,7 +2,8 @@
 // Memory Usage: 43.3 MB, less than 5.44% of C# online submissions for ZigZag Conversion.
 // Link: https://leetcode.com/problems/zigzag-conversion/
 
-public class Solution {
+public class Solution
+{
     public string Convert(string s, int numRows)
     {
         if (s.Length == 1 || s.Length == 2 || numRows == 1) return s;
