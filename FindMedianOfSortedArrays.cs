@@ -2,8 +2,10 @@
 // Memory Usage: 28.5 MB, less than 46.18% of C# online submissions for Median of Two Sorted Arrays.
 // Link: https://leetcode.com/problems/median-of-two-sorted-arrays/
 
-public class Solution {
-    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+public class Solution
+{
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+    {
         // 1 - merge arrays
         // 2 - find median of the merged array
         int[] mergedArray = new int[nums1.Length + nums2.Length];
